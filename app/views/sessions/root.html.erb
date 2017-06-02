@@ -1,0 +1,491 @@
+<style type="text/css">
+	.landing-container{
+		background-image: url('/assets/background.jpg');
+		height: 500px;
+		background-size: 100%;
+	}
+	.form-div{
+	    height: 465px;
+	    width: 700px;
+	    /*position: absolute;*/
+	    /*top: 20px;*/
+	    /*right: 13%;*/
+	    margin-left: 42%;
+	    margin-top: 15px;
+ 		background-color: rgba(255, 255, 255, 0.8);
+ 		padding: 0% 2%;
+    	border-radius: 25px;
+    	overflow: scroll;
+	}
+	input{
+		margin-bottom: 2%;
+	}
+	select{
+		margin-bottom: 2%;
+	}
+	.book-header{
+		text-align: center;
+	}
+	.btn{
+		float: right;
+	}
+	#dropoff_location{
+		margin-bottom: 1% !important;
+	}
+	.dropoffCont{
+		margin-top: 0%;
+		margin-bottom: 1%;
+		text-align: center;
+	}
+	.tiny-dropoff{
+		font-size: 0.8em;
+	}
+	.myTabs a{
+		color: black;
+	}
+	.second-left{
+		height: 300px;
+		background-color: #efefef;
+		color: #777;
+	}
+	.second-left h3{
+		text-align: center;
+	}
+	.second-right{
+		height: 300px;
+	}
+	.third-left{
+		height: 300px
+	}
+	.third-right{
+		height: 300px
+	}
+	.p-row p{
+	    padding: 3% 20%;
+	    text-align: justify;
+	}
+	.second-right .col-sm-6{
+		text-align: center;
+    	padding: 2%;
+    	height: 100%;
+	}
+	.second-right .col-sm-6 h4{
+		margin-top: 10%;
+	}
+	.third-right .col-sm-6{
+		text-align: center;
+    	padding: 2%;
+    	height: 100%;
+	}
+	.third-right .col-sm-6 h4{
+		margin-top: 10%;
+	}
+	.learn-more{
+		position: absolute;
+		bottom: 0;
+		right: 50px;
+	}
+	.small-right-p{
+		padding: 5% 15%;
+    	text-align: justify;
+	}
+	.glyphicon{
+		font-size: 38px;
+    	margin: 2% 0%;
+	}
+	.fourth-row{
+		height: 200px;
+	}
+</style>
+<div class="container-fluid landing-container">
+<div class="row">
+	<div class="col-sm-12 landing-bg">
+		<div class="form-div">
+			<h3 class="book-header">Book Air, Hotel & Car Here!</h3>
+<div class="tabsDiv">
+
+		  <!-- Nav tabs -->
+		  <ul id="myTabs" class="nav nav-tabs" role="tablist">
+		    <li class="myTabs active" role="presentation"><a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a></li>
+		    <li class="myTabs" role="presentation"><a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a></li>
+		    <li class="myTabs" role="presentation"><a href="#cars" aria-controls="cars" role="tab" data-toggle="tab">Cars</a></li>
+		    <!-- <li class="myTabs" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Cruises / Vacations</a></li> -->
+		  </ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane" id="home">
+	<form name="VPSearchForm"  method="post" action="http://www.latesttraveloffers.com/ci/enter.asp?site=VTHARC&amp;account=&amp;UseSearchApi=true" id="vacationForm" target="_blank">
+	<input type="hidden" name="srchDestText">
+	<div class="form-group">
+	    <label for="srchTravType" class="col-lg-4 col-md-6 control-label">Travel Type</label>
+	    <div class="col-lg-8 col-md-6">
+			<select name="srchTravType" class="VP-SearchInput form-control">
+				<option value="CRVA">Cruises/Vacation Pkgs</option>
+				<option value="CRUZ">Cruises Only</option>
+				<option value="PKG">Vacation Pkgs Only</option>
+				<option value="TOUR">Tours Only</option>
+				<option value="AUTO">International Auto</option>
+				<option value="LODG">Lodging</option>
+				<option value="AIR">Air Only</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="srchDestText1" class="col-lg-4 control-label col-md-6">Destination</label>
+	    <div class="col-lg-8 dest col-md-6 dropoffCont">
+			<select name="srchDestText1" class="VP-SearchInput form-control" onchange="document.VPSearchForm.srchDestText2.value='';">
+				<option value="">Any Destination</option>
+				<option value="Africa">Africa</option>
+				<option value="Alaska">Alaska</option>
+				<option value="Antarctica">Antarctica</option>
+				<option value="Aruba">Aruba</option>
+				<option value="Asia">Asia</option>
+				<option value="Australia">Australia</option>
+				<option value="Bahamas">Bahamas</option>
+				<option value="Baltic">Baltic</option>
+				<option value="Bermuda">Bermuda</option>
+				<option value="Britain and Ireland">Britain and Ireland</option>
+				<option value="California">California</option>
+				<option value="Canada and New England">Canada and New England</option>
+				<option value="Western Canada">Canada (Western)</option>
+				<option value="Cancun">Cancun</option>
+				<option value="Caribbean">Caribbean</option>
+				<option value="Western Caribbean">Caribbean (Western)</option>
+				<option value="Eastern Caribbean">Caribbean (Eastern)</option>
+				<option value="Southern Caribbean">Caribbean (Southern)</option>
+				<option value="Central America">Central America</option>
+				<option value="Europe">Europe</option>
+				<option value="Florida">Florida</option>
+				<option value="Hawaii">Hawaii</option>
+				<option value="Jamaica">Jamaica</option>
+				<option value="Las Vegas">Las Vegas</option>
+				<option value="Mediterranean">Mediterranean</option>
+				<option value="Mexican Riviera">Mexican Riviera</option>
+				<option value="Mexico">Mexico</option>
+				<option value="Middle East">Middle East</option>
+				<option value="New Zealand">New Zealand</option>
+				<option value="Northern Europe">Northern Europe</option>
+				<option value="Panama Canal">Panama Canal</option>
+				<option value="South America">South America</option>
+				<option value="South Pacific">South Pacific</option>
+				<option value="Transatlantic">Transatlantic</option>
+				<option value="USA">USA</option>
+				<option value="Eastern US">USA (Eastern)</option>
+				<option value="Western US">USA (Western)</option>
+			</select>
+			<span class="tiny-dropoff tiny-or">or</span>
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="srchDestText2" class="col-lg-4 control-label col-md-6">Type in Destination</label>
+	    <div class="col-lg-8 col-md-6">
+			<input id="destinationSearch" type="text" class="VP-SearchInput form-control" name="srchDestText2">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="srchStartTravDate" class="col-lg-4 control-label col-md-6">Departure Date</label>
+	    <div class="col-lg-8 col-md-6">
+			<select name="srchStartTravDate" class="VP-SearchInput form-control">
+				<option value="">Any Date</option>
+				<option value="04*2016*">April 2016</option>
+				<option value="05*2016*">May 2016</option>
+				<option value="06*2016*">June 2016</option>
+				<option value="07*2016*">July 2016</option>
+				<option value="08*2016*">August 2016</option>
+				<option value="09*2016*">September 2016</option>
+				<option value="10*2016*">October 2016</option>
+				<option value="11*2016*">November 2016</option>
+				<option value="12*2016*">December 2016</option>
+				<option value="01*2017*">January 2017</option>
+				<option value="02*2017*">February 2017</option>
+				<option value="03*2017*">March 2017</option>
+				<option value="04*2017*">April 2017</option>
+				<option value="05*2017*">May 2017</option>
+				<option value="06*2017*">June 2017</option>
+				<option value="07*2017*">July 2017</option>
+				<option value="08*2017*">August 2017</option>
+				<option value="09*2017*">September 2017</option>
+				<option value="10*2017*">October 2017</option>
+				<option value="11*2017*">November 2017</option>
+				<option value="12*2017*">December 2017</option>
+				<option value="01*2018*">January 2018</option>
+				<option value="02*2018*">February 2018</option>
+				<option value="03*2018*">March 2018</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="srchTravLength" class="col-lg-4 control-label col-md-6">Travel Length</label>
+	    <div class="col-lg-8 col-md-6">
+			<select name="srchTravLength" id="srchTravLength" class="VP-SearchInput form-control">
+				<option value="">Any Length</option>
+				<option value="0*2*">0-2 nights</option>
+				<option value="3*6*">3-6 nights</option>
+				<option value="7*9*">7-9 nights</option>
+				<option value="10*14*">10-14 nights</option>
+				<option value="14**">over 14 nights</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+	    <div class="col-sm-12 btnDiv">
+			<button class="btn btn-sm sample" id="vacationButton" type="submit">Search</button>
+		</div>
+	</div>
+	</form> 
+</div>
+<div role="tabpanel" class="tab-pane active" id="flights">
+	<form id="regularSearchForm" method="post" action="https://evov2.faregrabbr.com/remoteflightmultisearch.php?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYXJjaGVyX2FwaUBmYXJlZ3JhYmJyLmNvbSIsImlzc3VlX3RpbWUiOiIyMDE3LTA1LTMwIDIyOjA5OjAzIiwiaXAiOiI3My4yMjMuMTg1LjUwIn0.g-7nfu7AzzO6dToyu3o6cc6T9BynnCXz3Tc26_2lT9g" novalidate target="_blank">
+	<div class="form-group">
+	    <label for="type" class="col-lg-4 control-label col-md-6">Type</label>
+	    <div class="col-lg-8 col-md-6">
+			<select name="type" id="air_type" class="form-control">
+				<option value="roundtrip">Round Trip</option>
+				<option value="oneway">One Way</option>
+				<option value="multicity">Multi City</option>
+			</select>
+		</div>
+	</div>
+	<div class="row bottom-group hide">
+	</div>
+	<div class="form-group">
+	    <label for="origin" class="col-lg-4 control-label col-md-6">Origin</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="text" name="citypairs[0][origin]" class="form-control" id="origin" list="origin-list" autocomplete="off">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="destination" class="col-lg-4 control-label col-md-6">Destination</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="text" name="citypairs[0][destination]" class="form-control" id="destination" list="dest-list" autocomplete="off">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="depart" class="col-lg-4 control-label col-md-6">Depart</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="citypairs[0][departdate]" class="form-control" id="depart" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="append-div hide">
+	</div>
+	<div id="multiDiv" class="form-group col-sm-12 btnDiv multiDiv hide">
+		<button id="multiButton" class="multi-button btn btn-sm hide addOrigin btn-sample" type="button">Add City</button>
+	</div>
+	<div class="row bottom-group hide">
+	</div>
+	<div class="form-group return-form-group">
+	    <label for="return" class="col-lg-4 control-label col-md-6">Return</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="citypairs[0][returndate]" class="form-control" id="return" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="adults" class="col-lg-4 control-label col-md-6">Adults</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="number" name="adults" class="form-control" id="adults" min="1" value="1">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="children" class="col-lg-4 control-label col-md-6">Children</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="number" name="children" class="form-control" id="children" min="0" value="0">
+		</div>
+	</div>
+	<input type="hidden" name="isWidget" value="true">
+	<div class="form-group col-sm-12 btnDiv">
+		<input type="submit" value="Search" id="flightButton" class="btn btn-sm btn-sample">
+	</div>
+</form>
+</div>
+<div role="tabpanel" class="tab-pane" id="hotels">
+	<form id="hotelSearchForm" method="post" action="https://evov2.faregrabbr.com/remotehotelsearchwidget.php?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYXJjaGVyX2FwaUBmYXJlZ3JhYmJyLmNvbSIsImlzc3VlX3RpbWUiOiIyMDE3LTA1LTMwIDIyOjA5OjAzIiwiaXAiOiI3My4yMjMuMTg1LjUwIn0.g-7nfu7AzzO6dToyu3o6cc6T9BynnCXz3Tc26_2lT9g" novalidate target="_blank">
+		<input id="locationType" type="hidden" name="locationType" value="">
+	<div class="form-group">
+	    <label for="place" class="col-lg-4 control-label col-md-6">City / Airport</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="text" name="place" class="form-control" id="place" list="place-list" autocomplete="off">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="checkin" class="col-lg-4 control-label col-md-6">Check In</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="checkin" class="form-control" id="checkin" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="checkout" class="col-lg-4 control-label col-md-6">Check Out</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="checkout" class="form-control" id="checkout" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="numrooms" class="col-lg-4 control-label col-md-6">Rooms</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="number" name="numrooms" class="form-control" id="numrooms" min="1" value="1">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="adults-hotel" class="col-lg-4 control-label col-md-6">Guests</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="number" name="adults" class="form-control" id="adults-hotel" min="1" value="1">
+		</div>
+	</div>
+	<input type="hidden" name="isWidget" value="true">
+	<div class="form-group col-sm-12 btnDiv">
+		<input type="submit" value="Search" id="hotelButton" class="btn btn-sm btn-sample">
+	</div>
+</form>
+</div>
+<div role="tabpanel" class="tab-pane" id="cars">
+		<form id="carSearchForm" method="post" action="https://evov2.faregrabbr.com/remotecarsearchwidget.php?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYXJjaGVyX2FwaUBmYXJlZ3JhYmJyLmNvbSIsImlzc3VlX3RpbWUiOiIyMDE3LTA1LTMwIDIyOjA5OjAzIiwiaXAiOiI3My4yMjMuMTg1LjUwIn0.g-7nfu7AzzO6dToyu3o6cc6T9BynnCXz3Tc26_2lT9g" novalidate target="_blank">
+		<input id="locationType" type="hidden" name="locationType" value="">
+	<div class="form-group">
+	    <label for="pickup_location" class="col-lg-4 control-label col-md-6">Pickup Airport Code</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="text" name="pickup_location" class="form-control" id="pickup_location" list="pickup-list" autocomplete="off">
+		</div>
+	</div>
+	<input type="hidden" name="pickup_locationType" value="Airport">
+	<div class="form-group">
+	    <label for="dropoff_location" class="col-lg-4 control-label col-md-6">Dropoff Airport Code</label>
+	    <div class="col-lg-8 col-md-6 dropoffCont">
+			<input type="text" name="dropoff_location" class="form-control" id="dropoff_location" list="dropoff-list" autocomplete="off">
+			<span class="tiny-dropoff">(if different from pickup location)</span>
+		</div>
+	</div>
+	<input type="hidden" name="dropoff_locationType" value="Airport">
+	<div class="form-group">
+	    <label for="pickup_date" class="col-lg-4 control-label col-md-6">Pickup Date</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="pickup_date" class="form-control" id="pickup_date" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="pickup_time" class="col-lg-4 control-label col-md-6">Pickup Time</label>
+	    <div class="col-lg-8 col-md-6">
+	    	<select name="pickup_time" class="form-control" id="pickup_time">
+	    		<option value="12:00:00">Noon</option>
+	    		<option value="13:00:00">1:00 PM</option>
+	    		<option value="14:00:00">2:00 PM</option>
+	    		<option value="15:00:00">3:00 PM</option>
+	    		<option value="16:00:00">4:00 PM</option>
+	    		<option value="17:00:00">5:00 PM</option>
+	    		<option value="18:00:00">6:00 PM</option>
+	    		<option value="19:00:00">7:00 PM</option>
+	    		<option value="20:00:00">8:00 PM</option>
+	    		<option value="21:00:00">9:00 PM</option>
+	    		<option value="22:00:00">10:00 PM</option>
+	    		<option value="23:00:00">11:00 PM</option>
+	    		<option value="00:00:00">Midnight</option>
+	    		<option value="01:00:00">1:00 AM</option>
+	    		<option value="02:00:00">2:00 AM</option>
+	    		<option value="03:00:00">3:00 AM</option>
+	    		<option value="04:00:00">4:00 AM</option>
+	    		<option value="05:00:00">5:00 AM</option>
+	    		<option value="06:00:00">6:00 AM</option>
+	    		<option value="07:00:00">7:00 AM</option>
+	    		<option value="08:00:00">8:00 AM</option>
+	    		<option value="09:00:00">9:00 AM</option>
+	    		<option value="10:00:00">10:00 AM</option>
+	    		<option value="11:00:00">11:00 AM</option>
+	    	</select>
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="dropoff_date" class="col-lg-4 control-label col-md-6">Dropoff Date</label>
+	    <div class="col-lg-8 col-md-6">
+			<input type="date" name="dropoff_date" class="form-control" id="dropoff_date" min="<%= Date.today %>">
+		</div>
+	</div>
+	<div class="form-group">
+	    <label for="dropoff_time" class="col-lg-4 control-label col-md-6">Dropoff Time</label>
+	    <div class="col-lg-8 col-md-6">
+	    	<select name="dropoff_time" class="form-control" id="pickup_time">
+	    		<option value="12:00:00">Noon</option>
+	    		<option value="13:00:00">1:00 PM</option>
+	    		<option value="14:00:00">2:00 PM</option>
+	    		<option value="15:00:00">3:00 PM</option>
+	    		<option value="16:00:00">4:00 PM</option>
+	    		<option value="17:00:00">5:00 PM</option>
+	    		<option value="18:00:00">6:00 PM</option>
+	    		<option value="19:00:00">7:00 PM</option>
+	    		<option value="20:00:00">8:00 PM</option>
+	    		<option value="21:00:00">9:00 PM</option>
+	    		<option value="22:00:00">10:00 PM</option>
+	    		<option value="23:00:00">11:00 PM</option>
+	    		<option value="00:00:00">Midnight</option>
+	    		<option value="01:00:00">1:00 AM</option>
+	    		<option value="02:00:00">2:00 AM</option>
+	    		<option value="03:00:00">3:00 AM</option>
+	    		<option value="04:00:00">4:00 AM</option>
+	    		<option value="05:00:00">5:00 AM</option>
+	    		<option value="06:00:00">6:00 AM</option>
+	    		<option value="07:00:00">7:00 AM</option>
+	    		<option value="08:00:00">8:00 AM</option>
+	    		<option value="09:00:00">9:00 AM</option>
+	    		<option value="10:00:00">10:00 AM</option>
+	    		<option value="11:00:00">11:00 AM</option>
+	    	</select>
+		</div>
+	</div>
+	<input type="hidden" name="isWidget" value="true">
+	<div class="form-group col-sm-12 btnDiv">
+		<input type="submit" value="Search" id="carButton" class="btn btn-sm btn-sample">
+	</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+	<div class="row second-row">
+		<div class="col-sm-6 second-left">
+			<div class="row">
+				<h3>Work with Archer Corporate Travel</h3>
+					<h3>In Two Ways:</h3>
+			</div>
+			<div class="row p-row">
+			<p>At Archer Travel’s Corporate Division, we understand traveling is vital to making your business successful. It is our mission to provide your company with the absolute best customer service at the greatest value and cost efficiency, while providing outstanding customer service. That's why you can work with us in one of two ways - traditional corporate travel service, or subscribe to our Archer Frequent Traveler Program.</p>
+			</div>
+		</div>
+		<div class="col-sm-6 second-right">
+			<a href="#"><div class="col-sm-6">
+				<h4>Corporate Reports</h4>
+					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+					<p class="small-right-p">Archer Travel will provide monthly corporate travel management reports with complete details of your traveler’s activity for air, hotel, car rentals, and more.</p>
+					<!-- <span class="learn-more">Learn More</span> -->
+			</div></a>
+			<a href="#"><div class="col-sm-6">
+				<h4>Traveler Profile</h4>
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<p class="small-right-p">The Traveler Profile will insure your travel arrangements are exactly as you like them and your frequent flyer miles, seating preferences and room type are correct on every reservation.</p>
+					<!-- <span class="learn-more">Learn More</span> -->
+			</div></a>
+		</div> 
+	</div>
+	<div class="row third-row">
+		<div class="col-sm-6 third-left">
+		</div>
+		<div class="col-sm-6 third-right">
+			<a href="#"><div class="col-sm-6">
+				<h4>Incentive Travel</h4>
+					<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+					<p class="small-right-p">Archer experts design and execute group and individual travel programs that will motivate your target audience and generate substantial revenues for your company.</p>
+					<!-- <span class="learn-more">Learn More</span> -->
+			</div></a>
+			<a href="#"><div class="col-sm-6">
+				<h4>Group Travel</h4>
+					<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+					<p class="small-right-p">Archer Travel can assist your company with arranging groups of all sizes for all purposes at affordable rates. If you need to plan a manager meeting, training meeting, attend conventions or trade shows, Archer can assist.</p>
+					<!-- <span class="learn-more">Learn More</span> -->
+			</div></a>
+			</div>
+		</div>
+		<div class="row fourth-row">
+		</div> 
+	</div>
+</div>

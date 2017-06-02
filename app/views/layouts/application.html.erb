@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArcherCorporate</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet'  type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<style type="text/css">
+		*{
+			font-family: 'Open Sans', sans-serif;
+			color: black;
+		}
+		.nav-container{
+		    background: white;
+		    height: 100px;
+		    padding-top: 20px;
+		}
+		.navbar-default{
+			box-shadow: none;
+    		border-bottom: none;
+		}
+		.navbar-nav li{
+			/*margin: 0px 15px;*/
+		}
+		.navbar{
+			background: white;
+		}
+		.navbar-default .navbar-nav>li>a {
+		    color: black;
+		    font-size: 1em;
+		}
+	    .dropdown-toggle:active, .open .dropdown-toggle {
+	        background:#FFF !important; 
+	        color:#000 !important;
+	    }
+	    .navbar-right{
+	    	margin-top: 15px;
+	    }
+	    .navbar-brand img{
+	    	height: 80px;
+	    	display: inline-block;
+	    	margin-top: -35px;
+	    }
+	    .navbar-brand{
+	    	padding: 0px;
+	    }
+	    .project-name{
+		    color: black;
+		    font-size: 2em;
+		    text-align: center;
+		    display: block;
+	    }
+	    #corp{
+	    	font-size: 1em;
+	    	text-align: center;
+	    	margin-top: 2px;
+	    	color: #33525e;
+	    }
+	    .logo-text{
+	    	display: inline-block;
+	    	margin-top: 20px;
+	    	margin-left: 40px;
+	    }
+.btn-sample { 
+  color: #FFFFFF; 
+  background-color: #33525E; 
+  border-color: #0A1012; 
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #FFFFFF; 
+  background-color: #1C2C33; 
+  border-color: #0A1012; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #33525E; 
+  border-color: #0A1012; 
+} 
+ 
+.btn-sample .badge { 
+  color: #33525E; 
+  background-color: #FFFFFF; 
+}
+	</style>
+  </head>
+
+  <body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container nav-container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><%= image_tag('Archer_logo.png') %> <span class="logo-text"><span class="project-name">ARCHER</span><span class="project-name" id="corp">Corporate Travel</span></span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li class=""><a href="#">Home</a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Services <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Traveler Profile</a></li>
+            <li><a href="#">Frequent Traveler Program</a></li>
+            <li><a href="#">View Trip</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+<!--           <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
