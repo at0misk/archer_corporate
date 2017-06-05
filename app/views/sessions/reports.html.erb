@@ -1,0 +1,87 @@
+<style type="text/css">
+	.imgDiv img{
+		position: relative;
+		width: 100%;
+	}
+	.textDiv{
+		position: absolute;
+		top: 68px;
+		left: 140px;
+ 		background-color: rgba(255, 255, 255, 0.8);
+ 		height: 200px;
+ 		width: 320px;
+ 		padding: 2% 3%;
+ 		text-align: center;
+    	border-radius: 25px;
+    	padding-top: 4%;
+	}
+	.lastRow{
+		height: 160px;
+	}
+	.glyphicon{
+		font-size: 28px;
+	}
+	.copyDiv{
+		text-align: justify;
+		padding: 1% 3%;
+	}
+	.copyRow{
+		margin-top: 2%;
+	}
+	.listDiv{
+		padding: 0% 3%;
+	}
+/*	.textDiv a{
+
+	}*/
+</style>
+<div class="container">
+	<div class="row topRow">
+		<div class="col-md-6 listDiv">
+			<h3>Corporate Reports</h3>
+			<hr>
+			<p>Archer Travel will provide monthly corporate travel management reports with complete details of your traveler’s activity in the following areas:</p>
+			<h4>Airline Lost Savings Report</h4>
+			<ul>
+				<li>Actual fare paid</li>
+				<li>Lowest fare in the market for alternate flights</li>
+				<li>Reason lowest fare was not utilized</li>
+				<li>Cost to the company</li>
+			</ul>
+			<h4>Hotel Activity Report</h4>
+			<ul>
+				<li>Name of chains utilized</li>
+				<li>Individual properties where clients have stayed</li>
+				<li>Rate paid</li>
+				<li>Dates of stay</li>
+			</ul>
+		</div>
+		<div class="col-md-6 imgDiv">
+			<%= image_tag('reports') %>
+			<div class="textDiv">
+				<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+				<h4>Manage Your Expenses Effectively</h4>
+				<h5>Archer Travel can assist your company with your corporate travel reports.</h5>
+				<h5>For sample reports, please <a href="/contact">contact us</a>.</h5>
+			</div>
+		</div>
+	</div>
+	<div class="row copyRow">
+		<div class="col-sm-6 copyDiv">
+			<p>Most agencies use a Dollar Savings report that provides a fictitious savings for the trip arrangements.  Archer aggressively seeks the lowest prices and informs your administrators, travelers and management and reports ways to improve costs.</p>
+			 
+			<p>Our report also provides detailed information needed to negotiate special rates based on your volume:</p>
+			 
+			<p>Airline Activity - Tracks how much is being spent with each airline and if your volume is great enough to negotiate a corporate discount.</p>
+		</div>
+		<div class="col-sm-6 copyDiv">
+			<p>This report can break down by cost center, department, project or individual:</p>
+			 
+			<p>Car Rental - Tells you how much is being spent with each rental firm.</p>
+			 
+			<p>City Pair Report - Detailed information on most frequently traveled city pairs and provides a snapshot of company travel activity.  This report also helps us identify cost savings to those destinations.</p>
+		</div>
+	</div>
+	<div class="row lastRow">
+	</div>
+</div>

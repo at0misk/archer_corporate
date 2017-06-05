@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 	post 'contact' => 'sessions#contact_process'
 	get 'terms' => 'sessions#terms'
 	get 'privacy' => 'sessions#privacy'
+	get 'reports' => 'sessions#reports'
+	get 'incentive' => 'sessions#incentive'
+	get 'group' => 'sessions#group'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

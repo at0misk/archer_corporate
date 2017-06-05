@@ -17,4 +17,10 @@ class SessionsController < ApplicationController
 	end
 	def privacy
 	end
+	def reports
+	end
+	def incentive
+	end
+	def group
+	end
 end
