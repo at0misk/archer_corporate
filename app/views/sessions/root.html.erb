@@ -3,6 +3,7 @@
 		background-image: url('/assets/background.jpg');
 		height: 500px;
 		background-size: 100%;
+		background-repeat: no-repeat;
 	}
 	.form-div{
 	    height: 465px;
@@ -92,6 +93,7 @@
 	.glyphicon{
 		font-size: 38px;
     	margin: 2% 0%;
+		margin-top: 5%;
 	}
 	.last-row{
 		height: 160px;
@@ -101,7 +103,7 @@
 		/*margin-top: 3%;*/
 	}
 	.third-left-p{
-		padding: 3% 10%;
+		padding: 5% 10%;
     	text-align: justify;
 	}
 	.fourth-row{
@@ -481,7 +483,7 @@
 		<div class="col-sm-6 second-left">
 			<div class="row">
 				<h3>Work with Archer Corporate Travel</h3>
-					<h3>In Two Ways:</h3>
+<!-- 					<h3>In Two Ways:</h3> -->
 			</div>
 			<div class="row p-row">
 			<p>At Archer Travel’s Corporate Division, we understand traveling is vital to making your business successful. It is our mission to provide your company with the absolute best customer service at the greatest value and cost efficiency, while providing outstanding customer service. That's why you can work with us in one of two ways - traditional corporate travel service, or subscribe to our Archer Frequent Traveler Program.</p>
@@ -538,3 +540,358 @@
 		</div>  
 	</div>
 </div>
+
+<datalist id="origin-list">
+</datalist>
+
+<datalist id="dest-list">
+</datalist>
+
+<datalist id="place-list">
+</datalist>
+
+<datalist id="pickup-list">
+</datalist>
+
+<datalist id="dropoff-list">
+</datalist>
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load',function(){
+
+$('#place').keyup(function(e) {
+	if(e.keyCode == 8){
+		if(!$(this).val() || $(this).val().length == 1){
+			$('#place-list').empty();
+		}
+		else{
+			var text = $(this).val();
+			appendDataPlace(text);
+		}
+		// console.log('back')
+	}
+	else{
+		var text = $(this).val();
+		// console.log("key");
+		appendDataPlace(text);
+	}
+});
+
+var appendDataPlace = function(input){
+	$.ajax({
+		type: "GET",
+		url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + input + "&type=hotel",
+		success: function(data){
+			$('#place-list').empty();
+			for(var j = 0; j < data.length; j++){
+				console.log(data[j]['description'])
+				var newOption = "<option value='" + data[j]['description'] + "' data-type=" + data[j]['type'] + ">" + data[j]['description'] + "</option>";
+				$('#place-list').append(newOption);
+			}
+		}
+	})
+}
+
+$("#place").on('input', function () {
+    var val = this.value;
+    if($('#place-list option').filter(function(){
+        return this.value === val;        
+    }).length) {
+	    $('#place-list option').each(function() {
+	    if($(this).val() == val){
+	    	// change hidden input to "type" for car
+	    	// alert($(this).data('type'));
+	    	$('#locationType').val($(this).data('type'))
+		   }
+		});
+    }
+});
+
+var x = 0;
+
+$(".addOrigin").on('click', function(){
+	x++;
+	$('.append-div').removeClass('hide');
+	$('.append-div').addClass('block');
+	$('.addOrigin').addClass('margin-bottom-2');
+	$('.append-div').append("<div class='cont'><div class='row bottom-group bottom-group-border'></div><div class='row delRow'><button class='btn btn-xs btn-danger del-button'>X</button></div><div class='form-group'><label for='origin' class='col-lg-4 control-label col-md-6'>Origin</label><div class='col-lg-8 col-md-6'><input type='text' name='citypairs[" + x + "][origin]' class='form-control' id='origin" + x + "' list='origin-list" + x + "'></div></div><div class='form-group'><label for='destination' class='col-lg-4 control-label col-md-6'>Destination</label><div class='col-lg-8 col-md-6'><input type='text' name='citypairs[" + x + "][destination]' class='form-control' id='destination" + x + "' list='dest-list" + x + "'></div></div><div class='form-group'><label for='depart' class='col-lg-4 control-label col-md-6'>Depart</label><div class='col-lg-8 col-md-6'><input type='date' name='citypairs[" + x + "][departdate]' class='form-control' id='depart' min=''></div></div></div><datalist id='origin-list" + x + "'></datalist><datalist id='dest-list" + x + "'></datalist>");
+	$('.del-button').on('click', function(){
+		$(this).parent().parent().remove();
+	})
+
+		$("#origin" + x).keyup(function(e) {
+		if(e.keyCode == 8){
+			if(!$(this).val() || $(this).val().length == 1){
+				$("#origin-list" + x).empty();
+			}
+			else{
+				var text = $(this).val();
+					$.ajax({
+						type: "GET",
+						url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + text + "&type=air",
+						success: function(data){
+							$("#origin-list" + x).empty();
+							for(var i = 0; i < data.length; i++){
+								console.log(data[i]['description'])
+								var newOption = "<option value='" + data[i]['description'] + "'>" + data[i]['description'] + "</option>";
+								$("#origin-list" + x).append(newOption);
+								console.log("dynamic: I is: " + i + "X is: " + x);
+							}
+						}
+					})
+			}
+			// console.log('back')
+		}
+		else{
+			var text = $(this).val();
+			// console.log("key");
+					$.ajax({
+						type: "GET",
+						url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + text + "&type=air",
+						success: function(data){
+							$("#origin-list" + x).empty();
+							for(var i = 0; i < data.length; i++){
+								console.log(data[i]['description'])
+								var newOption = "<option value='" + data[i]['description'] + "'>" + data[i]['description'] + "</option>";
+								$("#origin-list" + x).append(newOption);
+								console.log('dynamic');
+							}
+						}
+					})
+		}
+	});
+	$("#destination" + x).keyup(function(e) {
+		if(e.keyCode == 8){
+			if(!$(this).val() || $(this).val().length == 1){
+				$("#dest-list" + x).empty();
+			}
+			else{
+				var text = $(this).val();
+			$.ajax({
+				type: "GET",
+				url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + text + "&type=air",
+				success: function(data){
+					$("#dest-list" + x).empty();
+					for(var i = 0; i < data.length; i++){
+						console.log(data[i]['description'])
+						var newOption = "<option value='" + data[i]['description'] + "'>" + data[i]['description'] + "</option>";
+						$("#dest-list" + x).append(newOption);
+					}
+				}
+			})
+			}
+			// console.log('back')
+		}
+		else{
+			var text = $(this).val();
+			$.ajax({
+				type: "GET",
+				url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + text + "&type=air",
+				success: function(data){
+					$("#dest-list" + x).empty();
+					for(var i = 0; i < data.length; i++){
+						console.log(data[i]['description'])
+						var newOption = "<option value='" + data[i]['description'] + "'>" + data[i]['description'] + "</option>";
+						$("#dest-list" + x).append(newOption);
+					}
+				}
+			})
+		}
+	});
+})
+
+var multi = false;
+
+$('#air_type').change(function(){
+	if($(this).val() == 'multicity'){
+		multi = true;
+		$('.top-group').addClass('top-group-border');
+		$('.bottom-group').addClass('bottom-group-border');
+		$('.bottom-group').removeClass('remove-bottom-margin');
+		$('.bottom-group').removeClass('hide');
+		$('.bottom-group').addClass('block');
+		$('.multi-button').addClass('button-show');
+		$('.multi-button').removeClass('hide');
+		$('.multiDiv').removeClass('hide');
+		$('.multiDiv').addClass('block');
+	}
+	else if($(this).val() == 'oneway'){
+		if(multi == true){
+			$('.append-div').empty();
+			multi = false;
+		}
+		$('.return-form-group').addClass('block');
+		$('.return-form-group').removeClass('hide');
+		$('.top-group').removeClass('top-group-border');
+		$('.bottom-group').removeClass('bottom-group-border');
+		$('.bottom-group').addClass('remove-bottom-margin');
+		$('.multi-button').addClass('hide');
+		$('.multi-button').removeClass('button-show');
+		$('.multiDiv').addClass('hide');
+		$('.multiDiv').removeClass('block');
+	}
+	else if($(this).val() == 'roundtrip'){
+		if(multi == true){
+			$('.append-div').empty();
+			multi = false;
+		}
+		$('.return-form-group').addClass('block');
+		$('.return-form-group').removeClass('hide');
+		$('.top-group').removeClass('top-group-border');
+		$('.bottom-group').removeClass('bottom-group-border');
+		$('.bottom-group').addClass('remove-bottom-margin');
+		$('.multi-button').addClass('hide');
+		$('.multi-button').removeClass('button-show');
+		$('.multiDiv').addClass('hide');
+		$('.multiDiv').removeClass('block');
+	}
+	if($(this).val() == "oneway" || $(this).val() == 'multicity'){
+		$('.return-form-group').addClass('hide');
+		$('.return-form-group').removeClass('block');
+	}
+})
+
+// Autocomplete AJAX Calls
+
+$('#pickup_location').keyup(function(e) {
+	if(e.keyCode == 8){
+		if(!$(this).val() || $(this).val().length == 1){
+			$('#pickup-list').empty();
+		}
+		else{
+			var text = $(this).val();
+			appendDataPickup(text);
+		}
+		// console.log('back')
+	}
+	else{
+		var text = $(this).val();
+		// console.log("key");
+		appendDataPickup(text);
+	}
+});
+
+var appendDataPickup = function(input){
+	$.ajax({
+		type: "GET",
+		url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + input + "&type=car",
+		success: function(data){
+			$('#pickup-list').empty();
+			for(var x = 0; x < data.length; x++){
+				console.log(data[x]['description'])
+				var newOption = "<option value='" + data[x]['description'] + "'>" + data[x]['description'] + "</option>";
+				$('#pickup-list').append(newOption);
+			}
+		}
+	})
+}
+
+$('#dropoff_location').keyup(function(e) {
+	if(e.keyCode == 8){
+		if(!$(this).val() || $(this).val().length == 1){
+			$('#dropoff-list').empty();
+		}
+		else{
+			var text = $(this).val();
+			appendDataDropoff(text);
+		}
+		// console.log('back')
+	}
+	else{
+		var text = $(this).val();
+		// console.log("key");
+		appendDataDropoff(text);
+	}
+});
+
+var appendDataDropoff = function(input){
+	$.ajax({
+		type: "GET",
+		url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + input + "&type=car",
+		success: function(data){
+			$('#dropoff-list').empty();
+			for(var x = 0; x < data.length; x++){
+				console.log(data[x]['description'])
+				var newOption = "<option value='" + data[x]['description'] + "'>" + data[x]['description'] + "</option>";
+				$('#dropoff-list').append(newOption);
+			}
+		}
+	})
+}
+
+$('#origin').keyup(function(e) {
+	if(e.keyCode == 8){
+		if(!$(this).val() || $(this).val().length == 1){
+			$('#origin-list').empty();
+		}
+		else{
+			var text = $(this).val();
+			appendDataOrigin(text);
+		}
+		// console.log('back')
+	}
+	else{
+		var text = $(this).val();
+		// console.log("key");
+		appendDataOrigin(text);
+	}
+});
+
+var appendDataOrigin = function(input){
+	$.ajax({
+		type: "GET",
+		url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + input + "&type=air",
+		success: function(data){
+			$('#origin-list').empty();
+			for(var x = 0; x < data.length; x++){
+				console.log(data[x]['description'])
+				var newOption = "<option value='" + data[x]['description'] + "'>" + data[x]['description'] + "</option>";
+				$('#origin-list').append(newOption);
+			}
+		}
+	})
+}
+
+$('#destination').keyup(function(e) {
+	if(e.keyCode == 8){
+		if(!$(this).val() || $(this).val().length == 1){
+			$('#dest-list').empty();
+		}
+		else{
+			var text = $(this).val();
+			appendDataDest(text);
+		}
+		// console.log('back')
+	}
+	else{
+		var text = $(this).val();
+		// console.log("key");
+		appendDataDest(text);
+	}
+});
+
+var appendDataDest = function(input){
+	$.ajax({
+		type: "GET",
+		url: "https://evov2.faregrabbr.com/remoteautocomplete_places.php?text=" + input + "&type=air",
+		success: function(data){
+			$('#dest-list').empty();
+			for(var x = 0; x < data.length; x++){
+				console.log(data[x]['description'])
+				var newOption = "<option value='" + data[x]['description'] + "'>" + data[x]['description'] + "</option>";
+				$('#dest-list').append(newOption);
+			}
+		}
+	})
+}
+
+// Tab Forms
+
+$('.myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+});
+</script>
