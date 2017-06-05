@@ -1,0 +1,158 @@
+<style type="text/css">
+/** {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}*/
+	.topRow{
+		/*margin-top: 20px;*/
+		/*height: 5000px;*/
+	}
+	.imgDiv img{
+		width: 70%;
+		/*display: inline;*/
+		vertical-align: top;
+		margin: 3%;
+	}
+	.leftImgDiv{
+		font-size: 0.9em;
+		text-align: center;
+		/*border: 1px solid black;*/
+	}
+	.rightImgDiv{
+		text-align: center;
+	}
+	.rightTextDiv{
+		margin-top: 4%;
+	}
+	.leftTextDiv .block{
+		font-size: 0.9em;
+	}
+	.aboutHeader{
+		/*margin-top: 20%;*/
+		text-align: center;
+	}
+	.awardsHeader{
+		margin-top: 18%;
+		margin-bottom: 5%;
+		text-align: center;
+	}
+	.blue{
+		color: #188eab;
+		text-align: right;
+	}
+	.block{
+		display: block;
+	}
+	.phoneRow{
+		font-size: 1.2em;
+	}
+	.phoneRowTop{
+		margin-top: 8%;
+	    padding: 0% 15%;
+	    text-align: justify;
+	}
+	.phoneRow div p{
+		margin-bottom: 2%;
+	}
+	.modalButtons{
+		text-align: center;
+	}
+	.phoneRowBottom{
+		margin-top: 10%;
+		padding: 0% 10%;
+	}
+	.btn-primary{
+		background: linear-gradient(to bottom,#1cb0d0 0,#2d8296 100%);
+		border-color: #2d8296;
+	}
+	.btn-primary:hover{
+		background-color: linear-gradient(to bottom,#1cb0d0 0,#3d515b 100%);
+		border-color: #2d8296;
+		opacity: 1;
+		background-position: 0px 0px;
+	}
+	.flashText{
+		text-align: center;
+	}
+	.tabsDiv li a{
+		color: #333;
+	}
+	.flashRow{
+		margin-top: 3%;
+	}
+	.lastRow{
+		height: 160px;
+	}
+</style>
+<div class="container">
+<div class="row">
+	<h3 class="aboutHeader">1-800-ARCHERS</h3>
+	<h4 class="aboutHeader">4148 Ocean View Blvd Montrose CA 91020</h4>
+	<h4 class="aboutHeader">Monday-Friday 7AM - 5PM</h4>
+</div>
+	<div class="row topRow">
+		<div class="col-sm-6 leftImgDiv">
+			<div class="row phoneRow phoneRowTop">
+			<p>To get in touch or request vacation information, you can call us at 1-800-272-4377 (local: 1-818-248-1511) and speak with one of our travel consultants, or you may fill out the form and one of our agents will reach out to you within the next business day:</p>
+			</div>
+			<div class="row phoneRow phoneRowBottom">
+				<div class="col-xs-6 tinyDiv">
+					<p>Local: (818) 248-1511</p>
+					<p>Toll Free: 800-272-4377</p>
+					<p>Fax: (818) 248-1643</p>
+				</div>
+				<div class="col-xs-6 tinyDiv">
+					<p>Our office:</p>
+					<p>4148 Ocean View Blvd</p>
+					<p>Montrose, CA 91020</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 rightTextDiv">
+				<form class="form-horizontal" method="post" action="/contact" id="editForm" enctype="multipart/form-data">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<div class="form-group">
+				    <label for="name" class="col-sm-4 control-label">
+				        Name</label>
+				    <div class="col-sm-8">
+				        <input name="name" type="text" class="form-control" id="name" />
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="email" class="col-sm-4 control-label">
+				        Email</label>
+				    <div class="col-sm-8">
+				        <input name="email" type="text" class="form-control" id="name" />
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="inquiry" class="col-sm-4 control-label">
+				        Inquiry</label>
+				    <div class="col-sm-8">
+				    	<textarea rows="8" name="inquiry" class="form-control" id="description"></textarea>
+				    </div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+					</div>
+				    <div class="col-sm-8 modalButtons header">
+				        <button type="submit" class="btn btn-sample btn-sm">
+				            Send</button>
+				    </div>
+				</div>
+			</form>
+			<% if flash[:sent] %>
+				<div class="row flashRow">
+					<div class="col-sm-4">
+					</div>
+					<div class="col-sm-8 flashText">
+					<p><%= flash[:sent] %></p>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row lastRow">
+	</div>
+</div>
